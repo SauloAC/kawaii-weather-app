@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kawaii Weather App</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Kawaii Weather App</h2>
+    </header>
+    <div class="main">
+      <div class="container">
+        <div class="searchBar">
+          <select name="favoriteCity" id="favoriteCity">
+            <option value="city">Saved Cities</option>
+          </select>
+          <div class="searchBarMenu">
+            <input
+              id="sbox1"
+              name="sbox1"
+              type="text"
+              placeholder="Search city..."
+            />
+            <button id="sbtn1" type="button">Search</button>
+          </div>
+        </div>
+        <h1>Current Weather</h1>
+        <div class="currentWeather">
+          <div>
+            <h2 class="cityName" id="city"></h2>
+            <p id="country"></p>
+            <div class="currentInformation">
+              <div id="tempFeelsLike">
+                <p id="temperature"></p>
+                <p id="feelsLike"></p>
+              </div>
+              <div id="minMax">
+                <p id="minTemp"></p>
+                <p id="maxTemp"></p>
+              </div>
+            </div>
+            <label class="stars">
+              <input id="star" type="checkbox" />
+              <img id="offStar" src="assets/graystar.png" alt="" />
+              <img id="onStar" src="assets/star.png" alt="" />
+            </label>
+          </div>
+          <div class="forecast">
+            <img id="currentWeather" src="" alt="Current Weather Information" />
+            <p id="currentForecastDayStatus"></p>
+          </div>
+        </div>
+        <h1>Forecast - 5 Days</h1>
+        <div class="fiveDays">
+          <button id="day1"></button>
+          <button id="day2"></button>
+          <button id="day3"></button>
+          <button id="day4"></button>
+          <button id="day5"></button>
+        </div>
+        <h1>3 hour range</h1>
+        <div class="threeHours">
+          <div id="hour1"></div>
+          <div id="hour2"></div>
+          <div id="hour3"></div>
+          <div id="hour4"></div>
+          <div id="hour5"></div>
+          <div id="hour6"></div>
+          <div id="hour7"></div>
+          <div id="hour8"></div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
