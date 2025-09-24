@@ -1,0 +1,268 @@
+@mixin placeCenter($jc) {
+  display: flex;
+  justify-content: $jc;
+  align-items: center;
+}
+body {
+  padding: 0;
+  margin: bottom 10px;
+}
+header {
+  width: 100%;
+  height: 5vh;
+  background-color: rgb(112, 192, 246);
+}
+h1 {
+  font-size: 15px;
+  align-self: flex-start;
+  padding-left: 5%;
+}
+.main {
+  @include placeCenter(center);
+  height: auto;
+}
+.container {
+  @include placeCenter(center);
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  height: auto;
+}
+.stars {
+  position: absolute;
+  right: 100px;
+  top: 10px;
+  img {
+    width: 50px;
+  }
+}
+#offStar {
+  display: block;
+}
+#onStar {
+  display: none;
+}
+#star {
+  display: none;
+  &:checked {
+    & ~ #offStar {
+      display: none;
+    }
+    & ~ #onStar {
+      display: block;
+    }
+  }
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    margin: 0;
+    color: white;
+  }
+}
+.searchBar {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  padding-top: 10px;
+
+  #favoriteCity {
+    width: 200px;
+  }
+}
+
+.currentWeather {
+  background-color: rgb(112, 192, 246);
+  @include placeCenter(space-around);
+  flex-direction: column;
+  text-align: center;
+  height: 60%;
+  width: 90%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 6px;
+
+  & > div {
+    background-color: white;
+    @include placeCenter(space-around);
+    flex-direction: column;
+    position: relative;
+    height: 40%;
+    width: 90%;
+  }
+}
+#currentWeather {
+  height: 90px;
+  width: auto;
+}
+#currentInformation {
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+}
+.forecast {
+  background-color: white;
+  height: 55%;
+  width: 90%;
+}
+
+.fiveDays {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 6px;
+  background-color: rgb(112, 192, 246);
+  width: 90%;
+  height: 90%;
+
+  button {
+    text-align: center;
+    border-radius: 6px;
+    background-color: white;
+    width: 16%;
+    height: 90%;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: all 0.4s ease-in;
+
+    p {
+      margin-top: 5px;
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+    &:focus {
+      background-color: darken(aqua, 10%);
+    }
+
+    &:hover {
+      background-color: darken(aqua, 10%);
+    }
+  }
+
+  img {
+    height: 80px;
+    width: auto;
+
+    &:hover {
+      transition: all 0.65s;
+      transform: rotateY(360deg);
+    }
+  }
+}
+
+.threeHours {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 6px;
+  background-color: rgb(112, 192, 246);
+  width: 90%;
+  height: 90%;
+
+  div {
+    text-align: center;
+    border-radius: 6px;
+    background-color: white;
+    width: 10%;
+    height: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: grid;
+    justify-content: center;
+    transition: all 0.4s ease-in;
+
+    p {
+      font-size: 20px;
+    }
+
+    &:hover {
+      background-color: darken($color: aqua, $amount: 10%);
+      width: 15%;
+
+      img {
+        height: 56px;
+        width: auto;
+        padding-bottom: 0px;
+        padding-top: 0px;
+      }
+    }
+  }
+
+  img {
+    height: 50px;
+    width: auto;
+    padding-bottom: 5px;
+    padding-left: 25px;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .searchBar {
+    #favoriteCity {
+      margin-bottom: 10px;
+    }
+  }
+  #currentInformation {
+    display: flex;
+    justify-content: space-evenly;
+    .tempFeelsLike {
+      padding-left: 5px;
+    }
+    .minMax {
+      padding-right: 5px;
+    }
+  }
+  .stars {
+    right: 10px;
+  }
+
+  .fiveDays {
+    // display:flex;
+    // flex-direction: column;
+    img {
+      width: 50%;
+      height: auto;
+    }
+    div p {
+      font-size: 15px;
+      padding-bottom: 10px;
+      font-weight: 300;
+    }
+  }
+  .threeHours {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+    div {
+      width: 90%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      p {
+        font-size: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        background-color: darken(aqua, 10%);
+        width: 90%;
+        height: 30%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
