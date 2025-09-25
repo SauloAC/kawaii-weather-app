@@ -9,7 +9,7 @@ export const getData = async (api) => {
     const response = await fetch(api);
     const data = await response.json();
     pwChecker++;
-    if (pwchecker === 1) {
+    if (pwChecker === 1) {
       await findPlace(data);
     } else if (pwChecker === 2) {
       await getCurrentHour(data);
