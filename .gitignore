@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 css
+
+# sensitive data
+src/public/js/data.js
