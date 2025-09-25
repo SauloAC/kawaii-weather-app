@@ -1,3 +1,4 @@
+import { addOnClickFiveDaysForecast } from "./addOnClickFiveDaysForecast";
 import {
   cityName,
   googleApiKey,
@@ -15,4 +16,5 @@ export const successCallBack = async (position) => {
   cityName = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${googleApiKey}`;
   pwChecker++;
   weatherCheck();
+  addOnClickFiveDaysForecast();
 };

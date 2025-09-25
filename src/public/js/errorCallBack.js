@@ -1,3 +1,4 @@
+import { addOnClickFiveDaysForecast } from "./addOnClickFiveDaysForecast";
 import { cityName, lat, pwChecker } from "./data";
 import { weatherCheck } from "./weatherCheck";
 
@@ -9,4 +10,5 @@ export const errorCallBack = async () => {
   // when reload the page, every information change to default city
   pwChecker++;
   weatherCheck();
+  addOnClickFiveDaysForecast();
 };
