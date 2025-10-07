@@ -1,10 +1,10 @@
-import { changeInfo } from "./js/changeInfo.js";
 import { errorCallBack } from "./js/errorCallBack.js";
 import { findPlace } from "./js/findPlace.js";
+import { initializeFavorites } from "./js/initializeFavorites.js";
 import { successCallBack } from "./js/successCallBack.js";
 
 // Initialize event listeners
-changeInfo();
+initializeFavorites();
 findPlace();
 
 // Start geolocation to get user's current location
