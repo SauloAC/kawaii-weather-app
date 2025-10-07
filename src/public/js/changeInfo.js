@@ -1,11 +1,14 @@
-import { addOnClickFiveDaysForecast } from "./addOnClickFiveDaysForecast";
-import { cityName, googleApiKey } from "./data";
-import { getData } from "./getData";
-import { weatherCheck } from "./weatherCheck";
+// Handle favorite city selection
+export const changeInfo = () => {
+  const favoriteSelect = document.getElementById("favoriteCity");
 
-export const changeInfo = async () => {
-  let placeName = `https://maps.googleapis.com/maps/api/geocode/json?address=${cityName}&key=${googleApiKey}`;
-  await getData(placeName);
-  await weatherCheck();
-  addOnClickFiveDaysForecast();
+  if (!favoriteSelect) return;
+
+  favoriteSelect.addEventListener("change", (e) => {
+    const selectedCity = e.target.value;
+    if (selectedCity && selectedCity !== "city") {
+      document.getElementById("sbox1").value = selectedCity;
+      document.getElementById("sbtn1").click();
+    }
+  });
 };

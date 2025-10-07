@@ -41,7 +41,7 @@ const getIconByWeather = (weatherDescription, image) => {
       break;
 
     case "mist":
-      image.src = ".assets/fog.png";
+      image.src = "./assets/fog.png";
       break;
 
     case "haze":
@@ -52,7 +52,6 @@ const getIconByWeather = (weatherDescription, image) => {
       image.src = "./assets/wind.png";
       break;
   }
-  console.log();
 };
 
 export { getIconByWeather };

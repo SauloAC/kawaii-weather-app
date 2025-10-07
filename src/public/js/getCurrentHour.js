@@ -1,26 +1,26 @@
-import { cityName, haveCountryName } from "./data";
-import { getIconByWeather } from "./getIconByWeather";
+import { state } from "./data.js";
+import { getIconByWeather } from "./getIconByWeather.js";
 
 // get current weather information from json
 export const getCurrentHour = (weather) => {
-  let addressArray = cityName.split(", ");
+  const addressArray = state.cityName.split(", ");
   let lastAddressArray = -1;
-  for (i = 0; i < addressArray.length; i++) {
+  for (let i = 0; i < addressArray.length; i++) {
     lastAddressArray++;
   }
-  if (haveCountryName) {
+  if (state.haveCountryName) {
     document.getElementById("city").innerHTML = addressArray[0];
-    document.getElementById("contry").innerHTML =
+    document.getElementById("country").innerHTML =
       addressArray[lastAddressArray];
   } else {
     document.getElementById("city").innerHTML = weather.name;
     document.getElementById("country").innerHTML = weather.sys.country;
-    cityName = `${weather.name}, ${weather.sys.country}`;
+    state.cityName = `${weather.name}, ${weather.sys.country}`;
   }
-  haveCountryName = true;
+  state.haveCountryName = true;
   document.getElementById("temperature").innerHTML =
     Math.round(weather.main.temp) + "°C";
-  document.getElementById("fellsLike").innerHTML =
+  document.getElementById("feelsLike").innerHTML =
     "Feels like: " + Math.round(weather.main.feels_like) + "°C";
   document.getElementById("minTemp").innerHTML =
     "Min: " + Math.round(weather.main.temp_min) + "°C";

@@ -1,14 +1,14 @@
-import { getIconByWeather } from "./getIconByWeather";
-import { hourlyForecast } from "./hourlyForecast";
+import { getIconByWeather } from "./getIconByWeather.js";
+import { hourlyForecast } from "./hourlyForecast.js";
 
 // display five days forecast
 export const getForecastFiveDays = (data) => {
-  for (i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     document.querySelector(`#day${i + 1}`).innerHTML = `<h3 id="day${
       i + 1
     }Date">${data[i * 8].month} ${data[i * 8].day}</h3><img id="day${
       i + 1
-    }img" src" " alt="Current Weather Information"><p id="day${
+    }img" src="/placeholder.svg" alt="Current Weather Information"><p id="day${
       i + 1
     }Temp">${Math.round(data[i * 8].temp)}°C</p><p id="day${
       i + 1

@@ -1,25 +1,26 @@
-import { getForecastFiveDays } from "./getForecastFiveDays";
+import { state } from "./data.js";
+import { getForecastFiveDays } from "./getForecastFiveDays.js";
 
 // pick the needed data from 5 days/hourly from json
 export const getFiveDaysData = (data) => {
-  array = [];
+  const array = [];
   for (let i = 0; i < 40; i++) {
     array.push({
       temp: data.list[i].main.temp,
       feels_like: data.list[i].main.feels_like,
       temp_min: data.list[i].main.temp_min,
-      temp_max: data.list[i].main.temp - max,
+      temp_max: data.list[i].main.temp_max,
       description: data.list[i].weather[0].description,
       dt_txt: data.list[i].dt_txt,
     });
   }
 
-  const timeZone = data.city.timeZone;
+  const timeZone = data.city.timezone;
 
   const utcToLocalTimeConverter = (oldTime, localTimeZone) => {
     const utcTime = oldTime + "Z";
     const newTime = new Date(utcTime);
-    mewTime.setSeconds(newTime.getUTCSeconds() + localTimeZone);
+    newTime.setSeconds(newTime.getUTCSeconds() + localTimeZone);
 
     const month = newTime.getUTCMonth() + 1;
     const day = newTime.getUTCDate();
@@ -30,9 +31,9 @@ export const getFiveDaysData = (data) => {
 
   array.forEach((item) => {
     const timeConverter = utcToLocalTimeConverter(item.dt_txt, timeZone);
-    const month = timeConverter[0];
-    const day = timeConverter[1];
-    const hour = timeConverter[2];
+    const month = timeConverter.month;
+    const day = timeConverter.day;
+    const hour = timeConverter.hour;
     const monthly = [
       "January",
       "February",
@@ -52,5 +53,7 @@ export const getFiveDaysData = (data) => {
     item.day = day;
     item.hour = hour;
   });
+
+  state.array = array;
   getForecastFiveDays(array);
 };

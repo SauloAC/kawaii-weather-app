@@ -1,20 +1,13 @@
-import { addOnClickFiveDaysForecast } from "./addOnClickFiveDaysForecast";
-import {
-  cityName,
-  googleApiKey,
-  haveCountryName,
-  lat,
-  lon,
-  pwChecker,
-} from "./data";
-import { weatherCheck } from "./weatherCheck";
+import { addOnClickFiveDaysForecast } from "./addOnClickFiveDaysForecast.js";
+import { state } from "./data.js";
+import { weatherCheck } from "./weatherCheck.js";
 
 export const successCallBack = async (position) => {
-  haveCountryName = false;
-  lat = position.coords.latitude;
-  lon = position.coords.longitude;
-  cityName = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${googleApiKey}`;
-  pwChecker++;
+  state.haveCountryName = false;
+  state.lat = position.coords.latitude;
+  state.lon = position.coords.longitude;
+  state.cityName = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${state.lat},${state.lon}&key=${state.googleApiKey}`;
+  state.pwChecker++;
   weatherCheck();
   addOnClickFiveDaysForecast();
 };
