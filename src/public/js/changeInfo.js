@@ -1,14 +1,6 @@
-// Handle favorite city selection
+// This file is kept for backward compatibility
+// The favorite city functionality is now handled by initializeFavorites.js
 export const changeInfo = () => {
-  const favoriteSelect = document.getElementById("favoriteCity");
-
-  if (!favoriteSelect) return;
-
-  favoriteSelect.addEventListener("change", (e) => {
-    const selectedCity = e.target.value;
-    if (selectedCity && selectedCity !== "city") {
-      document.getElementById("sbox1").value = selectedCity;
-      document.getElementById("sbtn1").click();
-    }
-  });
+  // Functionality moved to handleFavoriteCitySelect.js
+  // This function is now a no-op but kept to avoid breaking existing code
 };

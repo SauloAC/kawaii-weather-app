@@ -1,3 +1,4 @@
+import { checkIfCityIsFavorite } from "./checkIfCityIsFavorite.js";
 import { state } from "./data.js";
 import { getIconByWeather } from "./getIconByWeather.js";
 
@@ -32,4 +33,6 @@ export const getCurrentHour = (weather) => {
     weather.weather[0].description,
     document.getElementById("currentWeather")
   );
+
+  checkIfCityIsFavorite();
 };
