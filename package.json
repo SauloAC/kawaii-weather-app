@@ -1,16 +1,27 @@
 {
   "name": "kawaii-weather-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vanilla JavaScript Weather App",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-sass": "sass --watch src/public/scss:src/public/css"
+    "dev": "sass --watch src/public/scss:src/public/css",
+    "build": "npm run build:css && npm run build:copy",
+    "build:css": "sass src/public/scss/main.scss:dist/css/main.css --style compressed --no-source-map",
+    "build:copy": "node build.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sass": "^1.93.2"
-  }
+    "sass": "^1.93.2",
+    "fs": "0.0.1-security",
+    "path": "0.12.7",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "0.545.0"
+  },
+  "devDependencies": {
+    "postcss": "8.5.6"
+}
 }
