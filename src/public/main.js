@@ -7,7 +7,7 @@ import { successCallBack } from "./js/successCallBack.js";
 // Initialize event listeners
 initializeFavorites();
 findPlace();
-initGoogleAutocomplete();
+await initGoogleAutocomplete();
 
 // Start geolocation to get user's current location
 navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
