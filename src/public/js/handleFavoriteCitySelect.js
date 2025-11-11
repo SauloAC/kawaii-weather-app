@@ -1,4 +1,5 @@
-import { checkIfCityIsFavorite } from "./checkIfCityIsFavorite.js";
+import { addOnClickFiveDaysForecast } from "./addOnClickFiveDaysForecast.js";
+import { config } from "./config.js";
 import { state } from "./data.js";
 import { weatherCheck } from "./weatherCheck.js";
 
@@ -10,15 +11,17 @@ export const handleFavoriteCitySelect = async () => {
   const selectedCity = favCitySelect.value;
 
   // Ignore if placeholder is selected
-  if (!selectedCity || selectedCity === "city") return;
+  if (!selectedCity || selectedCity === "city") {
+    return;
+  }
 
   // Update state with selected city name
   state.cityName = selectedCity;
+  state.haveCountryName = true;
 
-  const { apiKey } = await import("./config.js");
   const geocodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(
     selectedCity
-  )}&limit=1&appid=${apiKey}`;
+  )}&limit=1&appid=${config.apiKey}`;
 
   try {
     const response = await fetch(geocodeUrl);
@@ -29,13 +32,15 @@ export const handleFavoriteCitySelect = async () => {
       state.lat = data[0].lat;
       state.lon = data[0].lon;
 
-      // Reset pwChecker and fetch weather data
       state.pwChecker = 0;
       state.pwChecker++;
+
+      // Fetch weather data
       weatherCheck();
 
-      // Update star checkbox
-      checkIfCityIsFavorite();
+      setTimeout(() => {
+        addOnClickFiveDaysForecast();
+      }, 1500);
     }
   } catch (error) {
     console.error("Error fetching city coordinates:", error);

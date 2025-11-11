@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kawaii Weather App</title>
     <link rel="stylesheet" href="css/main.css" />
+    <!-- Added Google Maps Places API script -->
     <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbBE9BBtlX0DHthEFneBTQ6N9hTsp_GPI&libraries=places"
+      async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbBE9BBtlX0DHthEFneBTQ6N9hTsp_GPI&libraries=places&callback=initialize"
     ></script>
   </head>
   <body>
@@ -52,7 +54,11 @@
             </label>
           </div>
           <div class="forecast">
-            <img id="currentWeather" src="" alt="Current Weather Information" />
+            <img
+              id="currentWeather"
+              src="/placeholder.svg"
+              alt="Current Weather Information"
+            />
             <p id="currentForecastDayStatus"></p>
           </div>
         </div>
