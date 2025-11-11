@@ -1,8 +1,11 @@
+@use "sass:color";
+
 @mixin placeCenter($jc) {
   display: flex;
   justify-content: $jc;
   align-items: center;
 }
+
 body {
   padding: 0;
   margin: bottom 10px;
@@ -137,11 +140,11 @@ header {
     }
 
     &:focus {
-      background-color: darken(aqua, 10%);
+      background-color: color.scale(aqua, $lightness: -10%);
     }
 
     &:hover {
-      background-color: darken(aqua, 10%);
+      background-color: color.scale(aqua, $lightness: -10%);
     }
   }
 
@@ -182,7 +185,7 @@ header {
     }
 
     &:hover {
-      background-color: darken($color: aqua, $amount: 10%);
+      background-color: color.scale(aqua, $lightness: -10%);
       width: 15%;
 
       img {
@@ -253,7 +256,7 @@ header {
       }
 
       &:hover {
-        background-color: darken(aqua, 10%);
+        background-color: color.scale(aqua, $lightness: -10%);
         width: 90%;
         height: 30%;
         margin-top: 10px;
